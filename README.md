@@ -1,5 +1,7 @@
 # setup-winsdk
 
+[![ci][1]][2]
+
 This action downloads and installs a specific version of the Windows 10 SDK.
 
 ## Inputs
@@ -24,3 +26,6 @@ steps:
 ## License
 
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
+
+[1]: https://github.com/fbactions/setup-winsdk/workflows/ci/badge.svg
+[2]: https://github.com/fbactions/setup-winsdk/actions
