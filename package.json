@@ -1,14 +1,29 @@
 {
   "name": "setup-winsdk",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sets up a specific version of the Windows 10 SDK",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "ncc build src/index.js -o dist",
+    "lint": "eslint src",
+    "test": "jest"
   },
-  "keywords": [],
-  "author": "Frieder Bluemle",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbactions/setup-winsdk.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "Windows",
+    "SDK"
+  ],
+  "author": "Frieder Bluemle <frieder.bluemle@gmail.com> (http://www.friederbluemle.com/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fbactions/setup-winsdk/issues"
+  },
+  "homepage": "https://github.com/fbactions/setup-winsdk#readme",
   "dependencies": {
     "@actions/core": "^1.2.4"
   },
