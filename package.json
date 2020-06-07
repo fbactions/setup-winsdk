@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/fbactions/setup-winsdk#readme",
   "dependencies": {
-    "@actions/core": "^1.2.4"
+    "@actions/core": "^1.2.4",
+    "@actions/exec": "^1.0.4",
+    "@actions/io": "^1.0.2"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
