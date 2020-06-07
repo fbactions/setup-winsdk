@@ -10,8 +10,8 @@ This action downloads and installs a specific version of the Windows 10 SDK.
 
 #### `winsdk-build-version`
 
-The 5-digit "build" version of the SDK "10.0.xxxxx.0" to install. Examples:
-17763, 18362, 19041. Default `18362`.
+The 5-digit version (build) of the SDK (`10.0.xxxxx.0`) to install. Examples:
+`17763`, `18362`, `19041`. Default `18362`.
 
 ## Example usage
 

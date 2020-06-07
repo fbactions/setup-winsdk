@@ -13,10 +13,10 @@
     "url": "git+https://github.com/fbactions/setup-winsdk.git"
   },
   "keywords": [
-    "GitHub",
-    "Actions",
-    "Windows",
-    "SDK"
+    "actions",
+    "github",
+    "github-actions",
+    "windows-sdk"
   ],
   "author": "Frieder Bluemle <frieder.bluemle@gmail.com> (http://www.friederbluemle.com/)",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "@actions/io": "^1.0.2"
   },
   "devDependencies": {
-    "@fbluemle/eslint-config": "^1.0.0",
+    "@fbluemle/eslint-config": "^1.1.1",
     "@zeit/ncc": "^0.22.3",
     "eslint": "^7.2.0",
     "jest": "^26.0.1"

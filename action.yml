@@ -2,7 +2,7 @@ name: 'Setup Windows SDK'
 description: 'Sets up a specific version of the Windows 10 SDK'
 inputs:
   winsdk-build-version:
-    description: 'The 5-digit "build" version of the SDK "10.0.xxxxx.0" to install. Examples: 17763, 18362, 19041'
+    description: 'The 5-digit version (build) of the SDK to install. Examples: 17763, 18362, 19041'
     default: '18362'
 runs:
   using: 'node12'
