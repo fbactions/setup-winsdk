@@ -13,10 +13,10 @@
     "url": "git+https://github.com/fbactions/setup-winsdk.git"
   },
   "keywords": [
-    "GitHub",
-    "Actions",
-    "Windows",
-    "SDK"
+    "actions",
+    "github",
+    "github-actions",
+    "windows-sdk"
   ],
   "author": "Frieder Bluemle <frieder.bluemle@gmail.com> (http://www.friederbluemle.com/)",
   "license": "MIT",
