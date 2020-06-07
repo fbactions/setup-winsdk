@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "description": "Sets up a specific version of the Windows 10 SDK",
   "main": "src/index.js",
+  "files": [
+    "dist/",
+    "externals/",
+    "src/",
+    "action.yml"
+  ],
   "scripts": {
     "build": "ncc build src/index.js -o dist",
     "lint": "eslint src",
