@@ -4,7 +4,7 @@ module.exports = {
     'es6': true,
     'node': true
   },
-  'extends': 'eslint:recommended',
+  'extends': '@fbluemle',
   'globals': {
     'Atomics': 'readonly',
     'SharedArrayBuffer': 'readonly'
