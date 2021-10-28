@@ -24,7 +24,7 @@
     "github-actions",
     "windows-sdk"
   ],
-  "author": "Frieder Bluemle <frieder.bluemle@gmail.com> (http://www.friederbluemle.com/)",
+  "author": "Frieder Bluemle <frieder.bluemle@gmail.com> (https://www.friederbluemle.org/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fbactions/setup-winsdk/issues"
