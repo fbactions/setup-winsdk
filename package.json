@@ -1,6 +1,6 @@
 {
   "name": "setup-winsdk",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Sets up a specific version of the Windows 10 SDK",
   "main": "src/index.js",
   "files": [
