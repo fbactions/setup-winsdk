@@ -18,6 +18,8 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - run: npm version ${{ github.event.inputs.type }}
       - name: Determine release branch
         id: var
