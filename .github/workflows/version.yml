@@ -27,7 +27,7 @@ jobs:
       - name: Create or update release branch
         run: |
           git show-branch $BRANCH &>/dev/null && git checkout $BRANCH || git checkout -b $BRANCH
-          git merge --ff-only master
+          git merge --ff-only ${GITHUB_REF#refs/heads/}
         env:
           BRANCH: ${{ steps.var.outputs.branch }}
       - run: git push --all --follow-tags
