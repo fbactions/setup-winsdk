@@ -21,7 +21,7 @@ async function run() {
     let output = '';
     let resultCode = 0;
     const powershellPath = await io.which('powershell', true);
-    await exec.exec(
+    resultCode = await exec.exec(
       `"${powershellPath}"`,
       [
         '-NoLogo',
