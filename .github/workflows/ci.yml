@@ -14,3 +14,6 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
+      - run: npm run build
+      - name: Ensure clean working tree
+        run: test -z "$(git status --porcelain)" || (git status; git diff; false)
