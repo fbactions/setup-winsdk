@@ -23,7 +23,7 @@ jobs:
       - run: npm version ${{ github.event.inputs.type }}
       - name: Determine release branch
         id: var
-        run: echo ::set-output name=branch::"v$(npm -s run env echo '$npm_package_version' | sed 's/\([0-9]*\).*/\1/')"
+        run: echo ::set-output name=branch::"v$(npm pkg get version --workspaces=false | sed 's/\"\([0-9]*\).*/\1/')"
       - name: Create or update release branch
         run: |
           git show-branch $BRANCH &>/dev/null && git checkout $BRANCH || git checkout -b $BRANCH
