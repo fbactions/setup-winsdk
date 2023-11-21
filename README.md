@@ -17,8 +17,8 @@ The 5-digit version (build) of the SDK (`10.0.xxxxx.0`) to install. Examples:
 
 ```yaml
 steps:
-  - uses: actions/checkout@v2
-  - uses: fbactions/setup-winsdk@v1
+  - uses: actions/checkout@v4
+  - uses: fbactions/setup-winsdk@v2
     with:
       winsdk-build-version: 19041
 ```
