@@ -5,5 +5,5 @@ inputs:
     description: 'The 5-digit version (build) of the SDK to install. Examples: 17763, 18362, 19041'
     default: '18362'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
