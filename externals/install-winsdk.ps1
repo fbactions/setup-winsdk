@@ -314,8 +314,16 @@ if ($InstallWindowsSDK)
             Write-Host -NoNewLine "Installing WinSDK..."
 
             $setupPath = Join-Path "$isoDrive" "WinSDKSetup.exe"
-            Start-Process -Wait $setupPath "/features $WindowsSDKOptions /q"
-            Write-Host "Done"
+            $setupProcess = (Start-Process -PassThru -Wait $setupPath "/features $WindowsSDKOptions /q")
+            if ($setupProcess.ExitCode -ne 0)
+            {
+                Write-Host "Failed! Exit code: $($setupProcess.ExitCode)"
+                Exit $setupProcess.ExitCode
+            }
+            else
+            {
+                Write-Host "Done"
+            }
         }
         else
         {
