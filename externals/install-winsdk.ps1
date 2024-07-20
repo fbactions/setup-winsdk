@@ -234,6 +234,21 @@ function Test-InstallStrongNameHijack
     return $false
 }
 
+function Dump-Install-Logs
+{
+    param (
+        [parameter(Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [string] $winsdkTempDir)
+
+    foreach($logfile in (Get-ChildItem "$winsdkTempDir\*.log"))
+    {
+        Write-Host "::group::Contents of ${logfile}:"
+        Get-Content $logfile
+        Write-Host "::endgroup::"
+    }
+}
+
 Write-Host -NoNewline "Checking for installed Windows SDK $WindowsSDKVersion..."
 $InstallWindowsSDK = Test-InstallWindowsSDK
 if ($InstallWindowsSDK)
@@ -318,6 +333,7 @@ if ($InstallWindowsSDK)
             if ($setupProcess.ExitCode -ne 0)
             {
                 Write-Host "Failed! Exit code: $($setupProcess.ExitCode)"
+                Dump-Install-Logs $winsdkTempDir
                 Exit $setupProcess.ExitCode
             }
             else
