@@ -9,7 +9,12 @@ $ErrorActionPreference = 'Stop'
 # Constants
 if ($desktopCPP)
 {
-    $WindowsSDKOptions = @("OptionId.UWPCpp", "OptionId.DesktopCPPx64", "OptionId.DesktopCPPx86", "OptionID.DesktopCPPARM", "OptionID.DesktopCPPARM64")
+    $WindowsSDKOptions = @("OptionId.UWPCpp", "OptionId.DesktopCPPx64", "OptionId.DesktopCPPx86", "OptionID.DesktopCPPARM64")
+    # It appears DesktopCPPARM was removed in SDK 26100
+    if ($buildNumber -lt 26100)
+    {
+        $WindowsSDKOptions += "OptionID.DesktopCPPARM"
+    }
 }
 else
 {
