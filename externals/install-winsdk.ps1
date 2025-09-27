@@ -9,7 +9,12 @@ $ErrorActionPreference = 'Stop'
 # Constants
 if ($desktopCPP)
 {
-    $WindowsSDKOptions = @("OptionId.UWPCpp", "OptionId.DesktopCPPx64", "OptionId.DesktopCPPx86", "OptionID.DesktopCPPARM", "OptionID.DesktopCPPARM64")
+    $WindowsSDKOptions = @("OptionId.UWPCpp", "OptionId.DesktopCPPx64", "OptionId.DesktopCPPx86", "OptionID.DesktopCPPARM64")
+    # It appears DesktopCPPARM was removed in SDK 26100
+    if ($buildNumber -lt 26100)
+    {
+        $WindowsSDKOptions += "OptionID.DesktopCPPARM"
+    }
 }
 else
 {
@@ -234,6 +239,21 @@ function Test-InstallStrongNameHijack
     return $false
 }
 
+function Dump-Install-Logs
+{
+    param (
+        [parameter(Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [string] $winsdkTempDir)
+
+    foreach($logfile in (Get-ChildItem "$winsdkTempDir\*.log"))
+    {
+        Write-Host "::group::Contents of ${logfile}:"
+        Get-Content $logfile
+        Write-Host "::endgroup::"
+    }
+}
+
 Write-Host -NoNewline "Checking for installed Windows SDK $WindowsSDKVersion..."
 $InstallWindowsSDK = Test-InstallWindowsSDK
 if ($InstallWindowsSDK)
@@ -314,8 +334,17 @@ if ($InstallWindowsSDK)
             Write-Host -NoNewLine "Installing WinSDK..."
 
             $setupPath = Join-Path "$isoDrive" "WinSDKSetup.exe"
-            Start-Process -Wait $setupPath "/features $WindowsSDKOptions /q"
-            Write-Host "Done"
+            $setupProcess = (Start-Process -PassThru -Wait $setupPath "/features $WindowsSDKOptions /q")
+            if ($setupProcess.ExitCode -ne 0)
+            {
+                Write-Host "Failed! Exit code: $($setupProcess.ExitCode)"
+                Dump-Install-Logs $winsdkTempDir
+                Exit $setupProcess.ExitCode
+            }
+            else
+            {
+                Write-Host "Done"
+            }
         }
         else
         {
