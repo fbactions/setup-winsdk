@@ -1,15 +1,15 @@
 name: test
 on:
   push:
-    branches: ['*']
+    branches: [ '*' ]
   pull_request:
 jobs:
   use-action:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, windows-2022, windows-2019]
-        sdkver: [19041, 26100]
+        os: [ windows-latest, windows-2022 ]
+        sdkver: [ 19041, 26100 ]
     steps:
       - uses: actions/checkout@v4
       - uses: ./

@@ -20,7 +20,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - run: npm version ${{ github.event.inputs.type }}
       - run: echo "VERSION=$(npm pkg get version --workspaces=false | xargs)" >> $GITHUB_ENV
       - name: Create or update release branch
